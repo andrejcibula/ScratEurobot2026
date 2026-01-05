@@ -1,0 +1,10 @@
+20:40:28 **** Incremental Build of configuration Debug for project ScratSTMPONOVO ****
+make -j8 all 
+arm-none-eabi-size   ScratSTMPONOVO.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5684	     20	   1572	   7276	   1c6c	ScratSTMPONOVO.elf
+Finished building: default.size.stdout
+ 
+
+20:40:29 Build Finished. 0 errors, 0 warnings. (took 1s.315ms)
+
