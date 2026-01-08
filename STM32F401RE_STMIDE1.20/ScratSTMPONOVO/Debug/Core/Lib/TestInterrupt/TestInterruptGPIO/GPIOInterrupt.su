@@ -1,0 +1,3 @@
+GPIOInterrupt.c:11:6:GPIOInterruptInit	4	static
+GPIOInterrupt.c:37:6:GPIOInit	4	static
+GPIOInterrupt.c:50:6:EXTI15_10_IRQHandler	4	static

@@ -1,0 +1,29 @@
+/*
+ * GPIOInterrupt.c
+ *
+ *  Created on: Jan 7, 2026
+ *      Author: Andrej
+ */
+
+
+void GPIOInterruptInit()
+{
+	//Sys config, aktiviramo interrupt na registru EXTICR4, EXTI13 -> PC13
+
+	SYSCFG->EXTICR4 |= (0b0010)<<4;
+
+	//dozvoljavamo interrupt
+	EXTI->IMR |= 1<<13;
+
+	//dozvoljavamo even request
+	EXTI->EMR |= 1 <<13;
+
+	//dozvoljavamo Rising trigger
+	EXTI->RTSR |= 1 <<13;
+}
+
+//if (EXTI->PR & (1 << 13))  // EXTI13 je pending
+//{
+//    EXTI->PR = 1 << 13;     // OČISTI bit
+//    // tvoj kod za interrupt
+//}

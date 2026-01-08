@@ -1,0 +1,73 @@
+/*
+ * GPIOInterrupt.c
+ *
+ *  Created on: Jan 7, 2026
+ *      Author: Andrej
+ */
+
+#include "GPIOINterrupt.h"
+#include <stdio.h>
+
+void GPIOInterruptInit()
+{
+	//palimo syscfg clock, bez njega EXTi prekidi ne mogu da rade
+
+	RCC->APB2ENR |= 1<<14;
+
+	//Sys config, aktiviramo interrupt na registru EXTICR4, EXTI13 -> PC13
+
+	SYSCFG->EXTICR4 |= (0b0010)<<4;
+
+	//dozvoljavamo interrupt
+	EXTI->IMR |= 1<<13;
+
+	//dozvoljavamo even request
+	EXTI->EMR |= 1 <<13;
+
+	//dozvoljavamo Rising trigger
+	EXTI->RTSR |= 1 <<13;
+
+
+	//palimo NVIC ISER registar iz program Manual-a. U startup-u (STM32IDE) nasli smo nas IRHandler.
+	//U ref manual-u nasli smo da se EXTI15-10 nalazi na poziciji 40 u Vector tabeli
+
+	NVIC->ISER[1] |= 1<<8;
+}
+
+void GPIOInit()
+{
+	//Palimo diodu PC13 kao gpio
+
+	RCC->AHB1ENR |= 1<<2;
+	GPIOC->MODER |= 0b00<<(13*2);
+	GPIOC->PUPDR |= 0b01 << (13*2);
+
+	RCC->AHB1ENR |= 1 << 0;
+	GPIOA->MODER |= (0b10)<<5*2;
+
+}
+
+void EXTI15_10_IRQHandler(void)
+{
+    if(EXTI->PR & (1<<13))      // proveri EXTI13
+    {
+        EXTI->PR = 1<<13;       // clear pending bit
+        // tvoj kod za akciju
+
+
+        if (GPIOA->ODR & 1<<5 )
+        {
+        	GPIOA->ODR &= ~(1 << 5);
+        }
+        else
+        {
+        	GPIOA->ODR |= 1 << 5;
+        }
+        //GPIOC->ODR ^= 1<<5;     // primer: toggle PC5
+    }
+}
+//if (EXTI->PR & (1 << 13))  // EXTI13 je pending
+//{
+//    EXTI->PR = 1 << 13;     // OČISTI bit
+//    // tvoj kod za interrupt
+//}

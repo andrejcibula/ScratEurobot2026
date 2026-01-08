@@ -12,6 +12,10 @@ SourceFiles#1=C:/Users/Andrej/Desktop/ScratEurobot/STM32F401RE_STMIDE1.20/ScratS
 SourceFiles#2=C:/Users/Andrej/Desktop/ScratEurobot/STM32F401RE_STMIDE1.20/ScratSTMPONOVO/Core/Src/main.c
 SourceFolderListSize=1
 SourcePath#0=C:/Users/Andrej/Desktop/ScratEurobot/STM32F401RE_STMIDE1.20/ScratSTMPONOVO/Core/Src
+HeaderFiles#3=C:/Users/Andrej/Desktop/ScratEurobot/STM32F401RE_STMIDE1.20/ScratSTMPONOVO/Core/Inc/main.h
+HeaderFiles#4=C:/Users/Andrej/Desktop/ScratEurobot/STM32F401RE_STMIDE1.20/ScratSTMPONOVO/Core/Inc/main.h
+SourceFiles#3=C:/Users/Andrej/Desktop/ScratEurobot/STM32F401RE_STMIDE1.20/ScratSTMPONOVO/Core/Src/main.c
+SourceFiles#4=C:/Users/Andrej/Desktop/ScratEurobot/STM32F401RE_STMIDE1.20/ScratSTMPONOVO/Core/Src/main.c
 HeaderFiles=;
 SourceFiles=;
 

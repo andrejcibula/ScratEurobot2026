@@ -1,0 +1,14 @@
+/*
+ * GPIOInterrupt.h
+ *
+ *  Created on: Jan 7, 2026
+ *      Author: Andrej
+ */
+
+#ifndef LIB_TESTINTERRUPT_TESTINTERRUPTGPIO_GPIOINTERRUPT_H_
+#define LIB_TESTINTERRUPT_TESTINTERRUPTGPIO_GPIOINTERRUPT_H_
+
+void GPIOInterruptInit();
+void GPIOInit();
+
+#endif /* LIB_TESTINTERRUPT_TESTINTERRUPTGPIO_GPIOINTERRUPT_H_ */
