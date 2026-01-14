@@ -1,0 +1,8 @@
+/*
+ * usartmoj.c
+ *
+ *  Created on: Jan 12, 2026
+ *      Author: Andrej
+ */
+
+

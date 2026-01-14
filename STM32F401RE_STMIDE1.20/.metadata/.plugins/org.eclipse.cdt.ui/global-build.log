@@ -1,6 +1,21 @@
-23:46:29 **** Incremental Build of configuration Debug for project ScratSTMPONOVO ****
+00:18:27 **** Incremental Build of configuration Debug for project ScratSTMPONOVO ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:107:4: warning: implicit declaration of function 'GPIOInterruptInit' [-Wimplicit-function-declaration]
+    GPIOInterruptInit();
+    ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:108:5: warning: implicit declaration of function 'GPIOInit'; did you mean 'MX_GPIO_Init'? [-Wimplicit-function-declaration]
+     GPIOInit();
+     ^~~~~~~~
+     MX_GPIO_Init
+../Core/Src/main.c:122:13: warning: pointer targets in passing argument 1 of 'snprintf' differ in signedness [-Wpointer-sign]
+    snprintf(text, sizeof(text),
+             ^~~~
+In file included from ../Core/Src/main.c:29:0:
+c:\st\stm32cubeide_1.2.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610\tools\arm-none-eabi\include\stdio.h:266:5: note: expected 'char * restrict' but argument is of type 'uint8_t * {aka unsigned char *}'
+ int snprintf (char *__restrict, size_t, const char *__restrict, ...)
+     ^~~~~~~~
 arm-none-eabi-gcc -o "ScratSTMPONOVO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Andrej\Desktop\ScratEurobot\STM32F401RE_STMIDE1.20\ScratSTMPONOVO\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ScratSTMPONOVO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: ScratSTMPONOVO.elf
  
@@ -8,52 +23,17 @@ arm-none-eabi-objdump -h -S  ScratSTMPONOVO.elf  > "ScratSTMPONOVO.list"
 arm-none-eabi-objcopy  -O binary  ScratSTMPONOVO.elf  "ScratSTMPONOVO.bin"
 arm-none-eabi-size   ScratSTMPONOVO.elf 
    text	   data	    bss	    dec	    hex	filename
-   4924	     20	   1572	   6516	   1974	ScratSTMPONOVO.elf
+  19400	    220	   1956	  21576	   5448	ScratSTMPONOVO.elf
 Finished building: default.size.stdout
  
-Finished building: ScratSTMPONOVO.list
 Finished building: ScratSTMPONOVO.bin
+Finished building: ScratSTMPONOVO.list
  
  
-23:46:50 **** Incremental Build of configuration Debug for project ScratSTMPONOVO ****
+00:20:39 **** Incremental Build of configuration Debug for project ScratSTMPONOVO ****
 make -j8 all 
 arm-none-eabi-size   ScratSTMPONOVO.elf 
    text	   data	    bss	    dec	    hex	filename
-   4924	     20	   1572	   6516	   1974	ScratSTMPONOVO.elf
+  19400	    220	   1956	  21576	   5448	ScratSTMPONOVO.elf
 Finished building: default.size.stdout
- 
-23:48:30 **** Incremental Build of configuration Debug for project ScratSTMPONOVO ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "ScratSTMPONOVO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Andrej\Desktop\ScratEurobot\STM32F401RE_STMIDE1.20\ScratSTMPONOVO\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ScratSTMPONOVO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: ScratSTMPONOVO.elf
- 
-arm-none-eabi-objdump -h -S  ScratSTMPONOVO.elf  > "ScratSTMPONOVO.list"
-arm-none-eabi-objcopy  -O binary  ScratSTMPONOVO.elf  "ScratSTMPONOVO.bin"
-arm-none-eabi-size   ScratSTMPONOVO.elf 
-   text	   data	    bss	    dec	    hex	filename
-   4924	     20	   1572	   6516	   1974	ScratSTMPONOVO.elf
-Finished building: default.size.stdout
- 
-Finished building: ScratSTMPONOVO.list
-Finished building: ScratSTMPONOVO.bin
- 
- 
-23:49:27 **** Incremental Build of configuration Debug for project ScratSTMPONOVO ****
-make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Lib/TestInterrupt/TestInterruptGPIO/GPIOInterrupt.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Lib/TestInterrupt/TestInterruptGPIO/GPIOInterrupt.d" -MT"Core/Lib/TestInterrupt/TestInterruptGPIO/GPIOInterrupt.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Lib/TestInterrupt/TestInterruptGPIO/GPIOInterrupt.o"
-arm-none-eabi-gcc -o "ScratSTMPONOVO.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Andrej\Desktop\ScratEurobot\STM32F401RE_STMIDE1.20\ScratSTMPONOVO\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ScratSTMPONOVO.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: ScratSTMPONOVO.elf
- 
-arm-none-eabi-objdump -h -S  ScratSTMPONOVO.elf  > "ScratSTMPONOVO.list"
-arm-none-eabi-objcopy  -O binary  ScratSTMPONOVO.elf  "ScratSTMPONOVO.bin"
-arm-none-eabi-size   ScratSTMPONOVO.elf 
-   text	   data	    bss	    dec	    hex	filename
-   4924	     20	   1572	   6516	   1974	ScratSTMPONOVO.elf
-Finished building: default.size.stdout
-Finished building: ScratSTMPONOVO.list
-Finished building: ScratSTMPONOVO.bin
- 
- 
  

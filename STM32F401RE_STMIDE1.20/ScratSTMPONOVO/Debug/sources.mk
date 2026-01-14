@@ -17,8 +17,10 @@ OBJCOPY_BIN :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Core/Lib/TCS34725 \
 Core/Lib/TestInterrupt/TestInterruptGPIO \
 Core/Lib/TestInterrupt/TestInterruptTajmer \
+Core/Lib/USART \
 Core/Src \
 Core/Startup \
 Drivers/STM32F4xx_HAL_Driver/Src \

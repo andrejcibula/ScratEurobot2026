@@ -20,10 +20,17 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "i2c.h"
+#include "tim.h"
+#include "usart.h"
+#include "gpio.h"
+#include "../../Core/Lib/TCS34725/TCS34725.h"
+#include "uartKomunikacija.h"
+#include <stdio.h>
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "../Lib/TestInterrupt/TestInterruptGPIO/GPIOInterrupt.h"
 
 /* USER CODE END Includes */
 
@@ -44,6 +51,9 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+uint8_t text[100] = "RGB Vrednosti su: ";
+uint16_t r_raw, g_raw, b_raw, c_raw;
+int red, green, blue, color;
 
 /* USER CODE END PV */
 
@@ -55,6 +65,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
 
 /* USER CODE END 0 */
 
@@ -72,8 +83,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-
-	HAL_Init();
+  HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -87,6 +97,12 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_I2C1_Init();
+  MX_TIM1_Init();
+  MX_TIM2_Init();
+  MX_TIM3_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   	GPIOInterruptInit();
     GPIOInit();
@@ -101,6 +117,13 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  getRawData(&r_raw, &g_raw, &b_raw, &c_raw);
+	  getRGB(&red, &green, &blue);
+	  snprintf(text, sizeof(text),
+	           " R=%d  G=%d  B=%d\r\n",
+	           red, green, blue);
+	  uartx_write_text(&huart2, text);
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
